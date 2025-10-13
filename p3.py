@@ -1,5 +1,5 @@
 """
-What is the largest prime factor of the number 600851475143?
+Find the largest prime factor of a composite number.
 """
 
 n = 600851475143
