@@ -1,5 +1,5 @@
 """
-What is the smallest number divisible by all of the numbers from 1 to 20?
+Find the smallest number divisible by all of the numbers from 1 to 20?
 """
 
 number = 1
@@ -14,4 +14,4 @@ while is_div == False:
         is_div = True
     else:
         number += 1
-print(f"number = {number}")
+print(number)
