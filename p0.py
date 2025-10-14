@@ -1,5 +1,5 @@
 """
-What is the sum of all the odd squares for the first 784 thousand square numbers?
+Find the sum of all the odd squares for the first 784 thousand square numbers?
 """
 
 sum = 0
