@@ -11,4 +11,4 @@ sum = 0
 for num in fibonacci_seq[:-1]:
     if num % 2 == 0:
         sum += num
-print(f"sum = {sum}")
+print(sum)
