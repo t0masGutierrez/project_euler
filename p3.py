@@ -1,11 +1,11 @@
 """
-Find the largest prime factor of a composite number.
+Find the largest prime factor of 600851475143.
 """
 
 n = 600851475143
 max = int(n ** 0.5)
-prime_factors = []
 
+prime_factors = []
 for i in range(2, max):
     divisible = n % i == 0
     multiple = False
@@ -18,6 +18,4 @@ for i in range(2, max):
         prime_factors.append(i)
 
 largest_prime_factor = prime_factors[-1]
-
-print(prime_factors)
-print(f"largest prime factor = {largest_prime_factor}")
+print(largest_prime_factor)
