@@ -27,7 +27,7 @@ thousand_digits = (digits1 + digits2 + digits3 + digits4 + digits5+ digits6 + di
 
 thirteen_digits = []
 for i, char in enumerate(thousand_digits):
-    digits = thousand_digits[i:3+i]
+    digits = thousand_digits[i:12+i]
     thirteen_digits.append(digits)
 
 products = []
