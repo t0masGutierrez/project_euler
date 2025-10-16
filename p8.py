@@ -33,10 +33,10 @@ for i, char in enumerate(thousand_digits):
 products = []
 for i1, string in enumerate(thirteen_digits):
     for i2, char in enumerate(string):
-        n = int(char)
+        digit = int(char)
         if i2 == 0:
-            products.append(n)
-        products[i1] *= n
+            products.append(digit)
+        products[i1] *= digit
 
 greatest_product = 0
 for p in products:
