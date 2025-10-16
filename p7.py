@@ -14,5 +14,6 @@ while len(primes) < 10001:
     if is_prime:
         primes.append(count)
     count += 1
+
 nth_prime = primes[-1]
 print(nth_prime)
