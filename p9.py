@@ -17,19 +17,21 @@ Find the product abc.
         # else increment n2
 
 n1 = 1
-n2 = 2
-triplets = []
+a, b, c = 0, 0, 0
 sum = 0
 while sum != 12:
-    square = n1 ** 2 + n2 ** 2
-    root = square ** 0.5
-    if root % 1 == 0:
-        root = int(root)
-        triplet = (n1, n2, root)
-        triplets.append(triplet)
-        sum = n1 + n2 + root
-        print(f"sum = {sum}")
+    n2 = n1 + 1
+    while sum < 12:
+        square = n1 ** 2 + n2 ** 2
+        root = square ** 0.5
+        print(f"root = {root}")
+        print(f"square = {square}")
+        if root % 1 == 0:
+            a = n1
+            b = n2
+            c = int(root)
+            sum = a + b + c
+            print(f"{a} + {b} + {c} = {sum}")
+        n2 += 1
     n1 += 1
-    n2 += 1
-pythagorean_triplet = triplets[-1]
-print(f"{pythagorean_triplet[0]} + {pythagorean_triplet[1]} + {pythagorean_triplet[2]} = {sum}")
+print(f"{a} + {b} + {c} = {sum}")
