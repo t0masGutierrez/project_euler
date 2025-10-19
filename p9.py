@@ -8,11 +8,7 @@ b = a + 1
 sum = 0
 while sum != 1000:
     square = a ** 2 + b ** 2
-    root = square ** 0.5
-    if root % 1 == 0:
-        c = int(root)
-    else:
-        c = root
+    c = square ** 0.5
     sum = a + b + c
     if sum == 1000:
         break
@@ -21,5 +17,5 @@ while sum != 1000:
     else: 
         a += 1
         b = a + 1
-product = a * b * c
+product = int(a * b * c)
 print(product)
