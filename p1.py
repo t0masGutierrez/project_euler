@@ -1,6 +1,6 @@
 def solution(multiples, N):
     """
-    Find the sum of all of the multiples below N.
+    Find the sum of all the multiples below N.
 
     Parameters
     ----------
