@@ -1,14 +1,31 @@
-"""
-Find the sum of all the even-valued terms in the Fibonacci sequence which do not exceed four million.
-"""
+def solution(N):
+    """
+    Find the sum of all the even terms in the Fibonacci sequence that do not exceed N.
 
-fibonacci_seq = [1, 2]
-while fibonacci_seq[-1] < 4000000:
-    fibonacci_num = fibonacci_seq[-1] + fibonacci_seq[-2]
-    fibonacci_seq.append(fibonacci_num)
+    Parameters
+    ----------
+    N : int
+        The maximum sum
 
-sum = 0
-for num in fibonacci_seq[:-1]:
-    if num % 2 == 0:
-        sum += num
-print(sum)
+    Returns
+    -------
+    sum : int
+        The sum of the even terms
+    """
+    fibonacci_seq = [0, 1]
+    while fibonacci_seq[-1] <= N:
+        fibonacci_num = fibonacci_seq[-1] + fibonacci_seq[-2]
+        fibonacci_seq.append(fibonacci_num)
+
+    sum = 0
+    for n in fibonacci_seq[:-1]:
+        if n % 2 == 0:
+            sum += n
+    return sum
+
+def main():
+    y = solution(4000000)
+    print(y)
+
+if __name__ == "__main__":
+    main()
