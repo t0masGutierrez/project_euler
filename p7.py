@@ -1,19 +1,36 @@
-"""
-Find the 10001st prime number. 
-"""
+def solution(N):
+    """
+    Find the Nth prime number.
 
-count = 2
-primes = []
-while len(primes) < 10001:
-    is_prime = True
-    for p in primes:
-        remainder = count % p
-        if remainder == 0:
-            is_prime = False
-            break
-    if is_prime:
-        primes.append(count)
-    count += 1
+    Parameters
+    ----------
+    N: int
+        The index of the prime number
 
-nth_prime = primes[-1]
-print(nth_prime)
+    Returns
+    -------
+    Nth_prime : int
+        The Nth prime number
+    """
+    i = 2
+    primes = []
+    while len(primes) < N:
+        is_prime = True
+        for p in primes:
+            remainder = i % p
+            if remainder == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(i)
+        i += 1
+
+    Nth_prime = primes[-1]
+    return Nth_prime
+
+def main():
+    y = solution(10001)
+    print(y)
+
+if __name__ == "__main__":
+    main()
