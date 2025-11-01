@@ -1,9 +1,30 @@
-"""
-Find the sum of all the multiples of 3 or 5 below 1000.
-"""
+def solution(multiples, N):
+    """
+    Find the sum of all of the multiples below N.
 
-sum = 0
-for i in range(1000):
-    if (i % 3 == 0) or (i % 5 == 0):
-        sum += i
-print(sum)
+    Parameters
+    ----------
+    multiples : list
+        List of integers being multiplied
+    N : int
+        The maximum multiple
+
+    Returns
+    -------
+    sum : int
+        The sum of the multiples
+    """
+    sum = 0
+    for i in range(N):
+        for m in multiples:
+            if i % m == 0:
+                sum += i
+                break
+    return sum
+
+def main():
+    y = solution([3, 5], 1000)
+    print(y)
+
+if __name__ == "__main__":
+    main()
