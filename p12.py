@@ -12,11 +12,11 @@ def solution(N):
     triangle_num : int
         The value of the triangle number 
     """
+    max_addend = 1
     num_divisors = 0
-    natural_num = 1
     while num_divisors <= N:
         triangle_num = 0
-        for n in range(1, natural_num):
+        for n in range(1, max_addend):
             triangle_num += n
         
         num_divisors = 0
@@ -27,7 +27,7 @@ def solution(N):
         for n in range(1, MAX_DIVISOR):
             if triangle_num % n == 0:
                 num_divisors += 2
-        natural_num += 1
+        max_addend += 1
     return triangle_num
 
 def main():
