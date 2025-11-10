@@ -1,6 +1,6 @@
 def solution(N):
     """
-    Find the sum of the digits of the number 2 raised to the power of N
+    Find the sum of the digits of the number 2 raised to the power of N.
 
     Parameters
     ----------
