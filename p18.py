@@ -57,8 +57,6 @@ def solution(N):
         row = triangle_nums[i + count: 2 * i + count + 1]
         triangle_mat.append(row)
         count += i
-    for row in triangle_mat:
-        print(row)
     
     for i in range(len(triangle_mat)-1, 0, -1):
         for j in range(len(triangle_mat[i])-1):
