@@ -1,0 +1,75 @@
+def solution(N):
+    """
+    By starting at the top of the triangle and moving to adjacent numbers on the N rows below, find the maximum total from top to bottom: 
+
+    75
+    95 64
+    17 47 82
+    18 35 87 10
+    20 04 82 47 65
+    19 01 23 75 03 34
+    88 02 77 73 07 63 67
+    99 65 04 28 06 16 70 92
+    41 41 26 56 83 40 80 70 33
+    41 48 72 33 47 32 37 16 94 29
+    53 71 44 65 25 43 91 52 97 51 14
+    70 11 33 28 77 73 17 78 39 68 17 57
+    91 71 52 38 17 14 91 43 58 50 27 29 48
+    63 66 04 68 89 53 67 30 73 16 69 87 40 31
+    04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
+
+    Parameters
+    ----------
+    N : int
+        The number of rows 
+
+    Returns
+    -------
+    max_total : int
+        The maximum total from top to bottom
+    """
+    triangle = """
+75
+95 64
+17 47 82
+18 35 87 10
+20 04 82 47 65
+19 01 23 75 03 34
+88 02 77 73 07 63 67
+99 65 04 28 06 16 70 92
+41 41 26 56 83 40 80 70 33
+41 48 72 33 47 32 37 16 94 29
+53 71 44 65 25 43 91 52 97 51 14
+70 11 33 28 77 73 17 78 39 68 17 57
+91 71 52 38 17 14 91 43 58 50 27 29 48
+63 66 04 68 89 53 67 30 73 16 69 87 40 31
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
+"""
+    triangle_nums = []
+    triangle_chars = triangle.split()
+    for char in triangle_chars:
+        num = int(char)
+        triangle_nums.append(num)
+
+    count = 0
+    triangle_mat = []
+    for i in range(N):
+        row = triangle_nums[i + count: 2 * i + count + 1]
+        triangle_mat.append(row)
+        count += i
+    for row in triangle_mat:
+        print(row)
+    
+    for i in range(len(triangle_mat)-1, 0, -1):
+        for j in range(len(triangle_mat[i])-1):
+            max_num = max(triangle_mat[i][j], triangle_mat[i][j+1])
+            triangle_mat[i-1][j] += max_num
+    max_total = triangle_mat[0][0]
+    return max_total
+
+def main():
+    y = solution(15)
+    print(y)
+
+if __name__ == "__main__":
+    main()
