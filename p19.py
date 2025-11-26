@@ -1,6 +1,6 @@
 def solution(N):
     """
-    Find the number of Sundays on the first of the month during the Nth century (1 Jan 1901 to 31 Dec 2000). 
+    Find the number of Sundays on the first of the month during the Nth century.
 
     Returns
     -------
