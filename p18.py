@@ -1,42 +1,56 @@
 def solution(N):
     """
-    Find the number of Sundays on the first of the month during the Nth century (1 Jan 1901 to 31 Dec 2000). 
+    By starting at the top of the triangle and moving to adjacent numbers on the N rows below, find the maximum total from top to bottom. 
+
+    Parameters
+    ----------
+    N : int
+        The number of rows 
 
     Returns
     -------
-    num_sundays : int
-        The number of sundays on the first of the month
+    max_total : int
+        The maximum total from top to bottom
     """
-    start = (N - 1) * 100 + 1
-    end = N * 100 + 1
-    num_sundays = 0
-    for i in range(start, end):
-        leap_days = 0
-        month_days = {}
-        for j in range(12):
-            if j in [3, 5, 8, 10]:
-                month_days[j] = 30
-            elif j == 1:
-                if i % 4 == 0 and i % 400 != 0:
-                    month_days[j] = 29
-                    leap_days += 1
-                else:
-                    month_days[j] = 28
-            else:
-                month_days[j] = 31
-        
-        for month in month_days:
-            # 1 jan 1990 +6 days equal sunday and +1 day for leap year
-            num_days = 7
-            for m in range(month):
-                num_days += month_days[m]
-            num_days += 365 * (i - 1901) + leap_days
-            if num_days % 7 == 0:
-                num_sundays += 1
-    return num_sundays
-                
+    triangle = """
+75
+95 64
+17 47 82
+18 35 87 10
+20 04 82 47 65
+19 01 23 75 03 34
+88 02 77 73 07 63 67
+99 65 04 28 06 16 70 92
+41 41 26 56 83 40 80 70 33
+41 48 72 33 47 32 37 16 94 29
+53 71 44 65 25 43 91 52 97 51 14
+70 11 33 28 77 73 17 78 39 68 17 57
+91 71 52 38 17 14 91 43 58 50 27 29 48
+63 66 04 68 89 53 67 30 73 16 69 87 40 31
+04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
+"""
+    triangle_nums = []
+    triangle_chars = triangle.split()
+    for char in triangle_chars:
+        num = int(char)
+        triangle_nums.append(num)
+
+    count = 0
+    triangle_mat = []
+    for i in range(N):
+        row = triangle_nums[i + count: 2 * i + count + 1]
+        triangle_mat.append(row)
+        count += i
+    
+    for i in range(len(triangle_mat)-1, 0, -1):
+        for j in range(len(triangle_mat[i])-1):
+            max_num = max(triangle_mat[i][j], triangle_mat[i][j+1])
+            triangle_mat[i-1][j] += max_num
+    max_total = triangle_mat[0][0]
+    return max_total
+
 def main():
-    y = solution(20)
+    y = solution(15)
     print(y)
 
 if __name__ == "__main__":
