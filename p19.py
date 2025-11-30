@@ -26,7 +26,7 @@ def solution(N):
                 month_days[j] = 31
         
         for month in month_days:
-            # 1 jan 1990 +6 days equal sunday and +1 day for leap year
+            # +6 days for sunday and +1 day for leap year
             num_days = 7
             for m in range(month):
                 num_days += month_days[m]
