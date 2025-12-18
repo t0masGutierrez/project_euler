@@ -15,9 +15,22 @@ def solution(N, k):
     nPk : int
         The Nth permutation
     """
-    def compute_factorial(i):
+    def compute_factorial(f):
+        """
+        Compute the factorial of number
+
+        Parameters
+        ----------
+        f : int
+            The number of digits to multiply
+        
+        Returns
+        -------
+        facto : int
+            The computed factorial
+        """
         facto = 1
-        for i in range(1, i + 1):
+        for i in range(1, f + 1):
             facto *= i
         return facto
     
