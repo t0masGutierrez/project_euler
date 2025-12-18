@@ -15,9 +15,9 @@ def solution(N, k):
     nPk : int
         The Nth permutation
     """
-    def compute_factorial(k):
+    def compute_factorial(i):
         facto = 1
-        for i in range(1, k + 1):
+        for i in range(1, i + 1):
             facto *= i
         return facto
     
