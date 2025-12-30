@@ -13,10 +13,10 @@ def solution(N):
     fib_index : int
         The index of 1st fibonacci number with N-digits
     """
-    count = 4
-    seq_index = 2
-    fib_index = 12
-    seq = [4, 5, 5]
+    count = 4 # the starting number of indices between new digits
+    seq_index = 2 # the starting index of the index sequence
+    fib_index = 12 # the starting index of the fibonacci sequence
+    seq = [4, 5, 5] # the index sequence between new digits
     for i in range(1, N - 2):
         if count / seq[seq_index % len(seq)] == 1:
             fib_index += 4
