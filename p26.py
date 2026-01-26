@@ -23,7 +23,7 @@ def solution(N):
             length = 1
             for j in range(1, N):
                 if i >= 100:
-                    j += 2
+                    j += 1
                 deci = str(unit_fract * 10 ** j).split(".")
                 pre_deci = deci[0]
                 post_deci = deci[1][:j]
